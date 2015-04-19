@@ -11,7 +11,7 @@ class HelloWorldTest extends FlatSpec {
   "A HelloWorld" should "print the greetings 'Hello World, Clelio!'" in {
     val greetings: String = "Hello World, Clelio!";
     val helloWorld = new HelloWorld(greetings);
-    assert(helloWorld.getGreetings == greetings);
+    assert(helloWorld.name == greetings);
   }
 
   "A HelloWorld" should "print numbers" in {

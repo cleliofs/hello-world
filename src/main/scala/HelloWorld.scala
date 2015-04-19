@@ -3,14 +3,7 @@ package main.scala
 /**
  * Created by clelio on 18/04/15.
  */
-class HelloWorld {
-
-
-  private var greetings: String = "Hello";
-
-  def this(greetings: String) { this(); this.greetings = greetings;}
-
-  def getGreetings = greetings;
+class HelloWorld(var name: String = "") {
 
   def printNumbers(b: Int, e: Int): Unit = {
     for {i <- b to e} printf("%s ", i)
