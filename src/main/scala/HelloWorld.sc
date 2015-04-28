@@ -1,2 +1,2 @@
 val hello = new HelloWorld("Test")
-hello.getGreetings
+hello.printNumbers(1, 2)
