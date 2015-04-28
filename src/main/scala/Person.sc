@@ -1,5 +1,3 @@
-import javax.print.attribute.standard.PrinterMoreInfoManufacturer
-
 class Person(var age: Int = 0) {
 
   if (age < 0) age = 0
@@ -24,18 +22,16 @@ p3.firstName
 p3.lastName
 
 
-def f = "John Smith" match {
-  case s => s.split(' ')(0)
-  case _ => throw new UnsupportedOperationException()
-}
-f
+def f(i: Int) = "John Smith".split(' ')(i)
+f(0)
+f(1)
 
 class Car(val manufacturer: String, val modelName: String, val modelYear: Int = -1) {
 
   var licensePlate: String = ""
 
   def this(manufacturer: String, modelName: String) {
-    this(manufacturer, modelName)
+    this(manufacturer, modelName, -1)
   }
 
   def this(manufacturer: String, modelName: String, licensePlate: String) {
