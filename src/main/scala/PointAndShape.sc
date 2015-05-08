@@ -49,4 +49,12 @@ class Circle(p1: Point, r: Int) extends Shape {
 val r = Rectangle(Point(1,2), Point(2,1))
 r.centerPoint
 
+class User {
+  private var _name: String = _
 
+  def name = _name
+  def name_=(name: String) = _name = name
+}
+
+val u = new User
+u.name="Clelio"
