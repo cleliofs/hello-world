@@ -17,5 +17,7 @@ object HelloObj {
     }
     val r2: List[Int] = r.map(e => e + 1)
     printf("Result: %s", r2(0))
+
+
   }
 }
