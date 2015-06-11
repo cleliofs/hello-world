@@ -2,14 +2,12 @@ package main.scala.http
 
 import java.util.concurrent.TimeoutException
 
+import dispatch.Defaults._
 import dispatch._
-import Defaults._
-import scala.collection.immutable.Seq
-import scala.concurrent.duration._
 
-import scala.concurrent.{Promise, Await}
-import scala.util.{Failure, Success}
-import scala.xml.{XML, Elem, NodeSeq, PrettyPrinter}
+import scala.concurrent.Await
+import scala.concurrent.duration._
+import scala.xml.{PrettyPrinter, XML}
 
 /**
  * Http dispatch example
@@ -34,8 +32,7 @@ object HttpDispatch extends App {
 
   val request = url("http://freegeoip.net/xml/www.dailymail.co.uk")
   val resultXml = Http(request OK as.xml.Elem)
-  val printer = new PrettyPrinter(90, 2)
-  val timeoutFuture = Future {
+  val resultXmlWithTimeout = Future {
     try {
       Await.result(resultXml, 3 seconds)
     } catch {
@@ -57,13 +54,11 @@ object HttpDispatch extends App {
     countryCode <- xml \\ "CountryCode"
   } yield Location(city.text, countryName.text, countryCode.text)
 
-  val locations = extractLocations(timeoutFuture())
+  val locations = extractLocations(resultXmlWithTimeout())
 
   Future {
-    println(locations);
-
-
-    Http.shutdown();
+    println(locations)
+    Http.shutdown()
   }
 
 
