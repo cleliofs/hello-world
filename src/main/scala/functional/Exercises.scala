@@ -27,8 +27,8 @@ object Exercises {
     def isSorted[A](as: Array[A], gt: (A, A) => Boolean): Boolean = {
       @tailrec
       def go(as: List[A], gt: (A, A) => Boolean): Boolean = as match {
-        case Nil => true
-        case a :: Nil => true
+        case List() => true
+        case a :: List() => true
         case a :: b :: tail if (gt(a, b)) => go(b :: tail, gt)
         case a :: b :: tail if (!gt(a, b)) => false
       }

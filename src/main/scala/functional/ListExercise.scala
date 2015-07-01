@@ -82,7 +82,7 @@ object MyList {
   def init[A](l: MyList[A]): MyList[A] = {
 
     def go(l: MyList[A]): MyList[A] = {
-      val res: Vector[A] = new Vector[A]()
+      val res: Vector[A] = Vector[A]()
       def go2(l: MyList[A]): Unit = l match {
         case Nil => ()
         case Cons(h, Nil) => ()
@@ -130,7 +130,7 @@ object ListExercise {
     println(MyList.setHead(MyList(1, 2, 3,4,5), 2))
     println(MyList(1, 2, 3,4,5).setHead(2))
 
-    val v: Vector[Int] = new Vector[Int]()
+    val v: Vector[Int] = Vector[Int]()
     v:+ 1
 
 //    println(MyList.init(MyList(1, 2, 3,4,5)))
