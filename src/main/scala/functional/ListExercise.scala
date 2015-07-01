@@ -130,7 +130,7 @@ object ListExercise {
     println(MyList.setHead(MyList(1, 2, 3,4,5), 2))
     println(MyList(1, 2, 3,4,5).setHead(2))
 
-    val v: Vector[Int] = Vector[Int]()
+    val v = Vector[Int]()
     v:+ 1
 
 //    println(MyList.init(MyList(1, 2, 3,4,5)))
